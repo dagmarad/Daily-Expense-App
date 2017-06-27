@@ -10,20 +10,15 @@ import categories from './categoryList.js';
         products.forEach((el)=>{
           sumaAll+=parseInt(el.price);
         });
-        var categoriesList = categories.forEach((el)=>{
 
-        });
-
-categories.forEach
+      categories.forEach
         let sum = {};
         products.forEach((el,index)=>{
           if(typeof sum[el.category]==="undefined"){
             sum[el.category]=0;
           }
             sum[el.category]+=parseInt(el.price)
-
         });
-
 
         return <div>
                 <h2>Podsumowanie</h2>
