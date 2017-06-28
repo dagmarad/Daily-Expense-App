@@ -6,8 +6,24 @@ import AddExpense from './AddExpense.jsx';
 import products from './productList.js';
 import categories from './categoryList.js';
 
+// /let config = {
+//     apiKey: "AIzaSyClUOwRE89e2LTWCnAjPNUi36unXFmiHBY",
+//     databaseURL: "https://daily-expense-app.firebaseio.com",
+// };
+// let app = firebase.initializeApp(config);
+// let productsItem = app.database().ref('productsItem');
+// productsItem.once("value").then(function(data){
+// })
+// productsItem.on("value", function(data) {
+// console.log(data.val());
+// },  function (error) {
+//    console.log("Error: " + error.code);
+//   });
+
 document.addEventListener('DOMContentLoaded', function(){
-    class App extends React.Component{
+
+
+class App extends React.Component{
       constructor(props) {
         super(props);
         this.state = {
@@ -17,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function(){
           expenseCategory:categories[0].category,//kategoria wydatku
           expenseDate:'',//data wydatku
           expenseList:products,
-          alert:''
-        }
+          alert:'',
+
       }
+   }
       ExpenseNameChange = (value) =>{
         this.setState({
           expenseName:value,
@@ -47,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function(){
           alertClass:"red"});
         }else{
         let productItem={date: this.state.expenseDate, category: this.state.expenseCategory, name: this.state.expenseName, price:this.state.expenseAmount};
+
         this.setState({expenseList:this.state.expenseList.concat(productItem)});
         this.setState({alert:"Wydatek dodano", alertClass:"green"});
         this.setState({
@@ -54,8 +72,15 @@ document.addEventListener('DOMContentLoaded', function(){
           expenseAmount:'',//kwota wydatku
           expenseCategory:categories[0].category,//kategoria wydatku
           expenseDate:'',//data wydatku
-
         });
+
+        //  productsItem.push({
+        //   name:productItem.name,
+        //   date:productItem.date,
+        //   category:productItem.category,
+        //  price:productItem.price,
+        // });
+
       }
     }
 
@@ -67,10 +92,12 @@ document.addEventListener('DOMContentLoaded', function(){
         alert:"Wydatek usunięto",
         alertClass:"blue"
       });
+
     }
 
 
       render() {
+
         return <div>
                   <AddExpense  expenseName={this.state.expenseName} onExpenseNameChange={this.ExpenseNameChange}
                      expenseAmount={this.state.expenseAmount} onExpenseNumberChange={this.ExpenseNumberChange}
@@ -78,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function(){
                      expenseDate={this.state.expenseDate} onExpenseDateChange={this.ExpenseDateChange}
                       onExpenseAdd={this.ExpenseAdd}/>
                     <p className={this.state.alertClass}>{this.state.alert}</p>
-                    <ExpenseList products={this.state.expenseList} onExpenseDelete={this.ExpenseDelete}/>
+                    <ExpenseList products={this.state.expenseList} onExpenseDelete={this.ExpenseDelete} productsItem={this.state.productsItem}/>
                     <Summary/>
                 </div>;
   }

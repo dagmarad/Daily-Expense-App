@@ -30,6 +30,7 @@ handleCategoryChange = (event) => {
     this.props.onExpenseCategoryChange(valueCategory);
  }
 }
+
 handleButtonClick =()=>{
   this.props.onExpenseAdd();
 }

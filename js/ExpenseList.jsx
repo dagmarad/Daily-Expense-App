@@ -19,8 +19,9 @@ import ReactDOM from 'react-dom';
             <td>{el.price}</td>
             <td><button onClick={this.handleButtonDelete} value={index}>Usuń</button></td>
           </tr> )
-
         });
+        
+
 
         return <div>
           <h2>Historia wydatków</h2>

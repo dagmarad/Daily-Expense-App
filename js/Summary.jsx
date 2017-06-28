@@ -26,34 +26,48 @@ import categories from './categoryList.js';
                 <table className="table">
                   <thead>
                     <tr>
-                      
                       <th>Kategoria</th>
                       <th>Suma</th>
                     </tr>
                   </thead>
                   <tbody>
                   <tr>
-
                     <td>Jedzenie</td>
-                    <td>{sumaAll}</td>
-                  </tr>
-                <tr>
-
-                    <td>Rozrywka</td>
-                    <td>{sum["Rozrywka"]}</td>
+                    <td>{sum["Jedzenie"]}</td>
                   </tr>
                   <tr>
-
-                      <td>Bilety</td>
-                      <td>{sum["Bilety"]}</td>
+                    <td>Napoje</td>
+                    <td>{sum["Napoje"]}</td>
+                  </tr>
+                  <tr>
+                      <td>Zdrowie</td>
+                      <td>{sum["Zdrowie"]}</td>
                     </tr>
                   <tr>
-
-                    <td>Łącznie</td>
-                    <td>{sumaAll}</td>
+                      <td>Rozrywki</td>
+                      <td>{sum["Rozrywki"]}</td>
+                    </tr>
+                  <tr>
+                      <td>Podróże</td>
+                      <td>{sum["Podróże"]}</td>
                   </tr>
-
-                </tbody>
+                  <tr>
+                      <td>Alkohol</td>
+                      <td>{sum["Alkohol"]}</td>
+                  </tr>
+                  <tr>
+                      <td>Kultura</td>
+                      <td>{sum["Kultura"]}</td>
+                  </tr>
+                  <tr>
+                      <td>Sport</td>
+                      <td>{sum["Sport"]}</td>
+                  </tr>
+                  <tr>
+                      <td>Łącznie</td>
+                      <td>{sumaAll}</td>
+                  </tr>
+                    </tbody>
               </table>
             </div>
       }
