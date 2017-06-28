@@ -8,20 +8,84 @@ import categories from './categoryList.js';
 
 document.addEventListener('DOMContentLoaded', function(){
     class App extends React.Component{
+      constructor(props) {
+        super(props);
+        this.state = {
+          expenseName:'',//nazwa wydatku
+          alertClass:"",
+          expenseAmount:'',//kwota wydatku
+          expenseCategory:categories[0].category,//kategoria wydatku
+          expenseDate:'',//data wydatku
+          expenseList:products,
+          alert:''
+        }
+      }
+      ExpenseNameChange = (value) =>{
+        this.setState({
+          expenseName:value,
+        })
+      }
+      ExpenseNumberChange = (value) =>{
+        this.setState({
+          expenseAmount:value,
+        })
+      }
+      ExpenseDateChange = (value) =>{
+        this.setState({
+          expenseDate:value,
+        })
+      }
+      ExpenseCategoryChange = (value) =>{
+        this.setState({
+          expenseCategory:value,
+        })
+      }
+
+      ExpenseAdd=()=>{
+        if(this.state.expenseDate==""||this.state.expenseName==""||this.state.expenseAmount==""){
+          this.setState({alert:"Wypełnij wszystkie pola",
+          alertClass:"red"});
+        }else{
+        let productItem={date: this.state.expenseDate, category: this.state.expenseCategory, name: this.state.expenseName, price:this.state.expenseAmount};
+        this.setState({expenseList:this.state.expenseList.concat(productItem)});
+        this.setState({alert:"Wydatek dodano", alertClass:"green"});
+        this.setState({
+          expenseName:'',//nazwa wydatku
+          expenseAmount:'',//kwota wydatku
+          expenseCategory:categories[0].category,//kategoria wydatku
+          expenseDate:'',//data wydatku
+
+        });
+      }
+    }
+
+    ExpenseDelete = (element)=>{
+      let copyTable=this.state.expenseList;
+      copyTable.splice(element,1);
+      this.setState({
+        expenseList:copyTable,
+        alert:"Wydatek usunięto",
+        alertClass:"blue"
+      });
+    }
+
 
       render() {
         return <div>
-                  <AddExpense/>
-                    <ExpenseList products={products}/>
+                  <AddExpense  expenseName={this.state.expenseName} onExpenseNameChange={this.ExpenseNameChange}
+                     expenseAmount={this.state.expenseAmount} onExpenseNumberChange={this.ExpenseNumberChange}
+                     expenseCategory={this.state.expenseCategory} onExpenseCategoryChange={this.ExpenseCategoryChange}
+                     expenseDate={this.state.expenseDate} onExpenseDateChange={this.ExpenseDateChange}
+                      onExpenseAdd={this.ExpenseAdd}/>
+                    <p className={this.state.alertClass}>{this.state.alert}</p>
+                    <ExpenseList products={this.state.expenseList} onExpenseDelete={this.ExpenseDelete}/>
                     <Summary/>
                 </div>;
-
- }
+  }
 }
 
-
 ReactDOM.render(
-    <App/>,
+    <App categories={categories} products={products} />,
     document.getElementById('app')
 );
 });

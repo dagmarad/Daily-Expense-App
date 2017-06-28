@@ -18,31 +18,37 @@ import categories from './categoryList.js';
             sum[el.category]=0;
           }
             sum[el.category]+=parseInt(el.price)
-        });
+        });//korzystajac potem z wartosci {sum["Rozrywka"]}
+        // dodaje sumy dla poszczegolnych kategorii
 
         return <div>
                 <h2>Podsumowanie</h2>
                 <table className="table">
                   <thead>
                     <tr>
-                      <th>Data</th>
+                      
                       <th>Kategoria</th>
                       <th>Suma</th>
                     </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td></td>
+
                     <td>Jedzenie</td>
                     <td>{sumaAll}</td>
                   </tr>
                 <tr>
-                    <td></td>
+
                     <td>Rozrywka</td>
                     <td>{sum["Rozrywka"]}</td>
                   </tr>
                   <tr>
-                    <td></td>
+
+                      <td>Bilety</td>
+                      <td>{sum["Bilety"]}</td>
+                    </tr>
+                  <tr>
+
                     <td>Łącznie</td>
                     <td>{sumaAll}</td>
                   </tr>

@@ -1,18 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import products from './productList.js';
 
 
     class ExpenseList extends React.Component{
+          handleButtonDelete=(event)=>{
+            const valueDelete=event.target.value;
+            this.props.onExpenseDelete(valueDelete);
+              }
+
       render() {
+
         let rows = [];
-        products.forEach((el,index)=>{
+        this.props.products.forEach((el,index)=>{
           rows.push( <tr key={index}>
             <td>{el.date}</td>
             <td>{el.category}</td>
             <td>{el.name}</td>
             <td>{el.price}</td>
-            <td><button>Usuń</button></td>
+            <td><button onClick={this.handleButtonDelete} value={index}>Usuń</button></td>
           </tr> )
 
         });
