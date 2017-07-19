@@ -6,7 +6,19 @@ import AddExpense from './AddExpense.jsx';
 import products from './productList.js';
 import categories from './categoryList.js';
 
-
+// /let config = {
+//     apiKey: "AIzaSyClUOwRE89e2LTWCnAjPNUi36unXFmiHBY",
+//     databaseURL: "https://daily-expense-app.firebaseio.com",
+// };
+// let app = firebase.initializeApp(config);
+// let productsItem = app.database().ref('productsItem');
+// productsItem.once("value").then(function(data){
+// })
+// productsItem.on("value", function(data) {
+// console.log(data.val());
+// },  function (error) {
+//    console.log("Error: " + error.code);
+//   });
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -22,10 +34,6 @@ class App extends React.Component{
           expenseDate:'',//data wydatku
           expenseList:products,
           alert:'',
-          travel:0,
-          fun:0,
-          sport:0,
-          sum:'',
 
       }
    }
@@ -66,7 +74,12 @@ class App extends React.Component{
           expenseDate:'',//data wydatku
         });
 
-
+        //  productsItem.push({
+        //   name:productItem.name,
+        //   date:productItem.date,
+        //   category:productItem.category,
+        //  price:productItem.price,
+        // });
 
       }
     }
@@ -85,7 +98,7 @@ class App extends React.Component{
 
       render() {
 
-        return <div className="container-fluid">
+        return <div className="container">
                   <AddExpense  expenseName={this.state.expenseName} onExpenseNameChange={this.ExpenseNameChange}
                      expenseAmount={this.state.expenseAmount} onExpenseNumberChange={this.ExpenseNumberChange}
                      expenseCategory={this.state.expenseCategory} onExpenseCategoryChange={this.ExpenseCategoryChange}
@@ -93,7 +106,7 @@ class App extends React.Component{
                       onExpenseAdd={this.ExpenseAdd}/>
                     <p className={this.state.alertClass}>{this.state.alert}</p>
                     <ExpenseList products={this.state.expenseList} onExpenseDelete={this.ExpenseDelete} productsItem={this.state.productsItem}/>
-                    <Summary products={this.state.expenseList} travel={this.state.travel} fun={this.state.fun} sport={this.state.sport}/>
+                    <Summary/>
 
                 </div>;
   }

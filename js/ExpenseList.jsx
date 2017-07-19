@@ -13,19 +13,19 @@ import ReactDOM from 'react-dom';
         let rows = [];
         this.props.products.forEach((el,index)=>{
           rows.push( <tr key={index}>
-            <td>{el.date}</td>
-            <td>{el.category}</td>
-            <td>{el.name}</td>
-            <td>{el.price}</td>
-            <td><button onClick={this.handleButtonDelete} value={index}>Usuń</button></td>
+            <td className="col-md-3">{el.date}</td>
+            <td className="col-md-3">{el.category}</td>
+            <td className="col-md-3">{el.name}</td>
+            <td className="col-md-2">{el.price}</td>
+            <td className="col-md-1"><button onClick={this.handleButtonDelete} value={index} className="btn btn-danger">Usuń</button></td>
           </tr> )
         });
-        
+
 
 
         return <div>
           <h2>Historia wydatków</h2>
-            <table className="table">
+            <table className=" table table table-bordered">
               <thead>
               <tr>
                 <th>Data</th>

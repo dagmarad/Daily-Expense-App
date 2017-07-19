@@ -14,8 +14,7 @@ import {Legend} from 'react-easy-chart';
         });
 
         categories.forEach
-        let sum = {}
-
+        let sum = {};
         this.props.products.forEach((el,index)=>{
            if(typeof sum[el.category]==="undefined"){
              sum[el.category]=0;
@@ -84,21 +83,19 @@ import {Legend} from 'react-easy-chart';
                 <PieChart
                   labels
                   data={[
-
-                    {key: 'Podróże', value:sum["Podróże"],  color: '#aaac84'},
-                    {key: 'Jedzenie', value: sum["Jedzenie"], color: '#dce7c5'},
+                    {key: 'Podróże', value:sum["Podróże"], default : 0, color: '#aaac84'},
+                    {key: 'Jedzenie', value: sum["Jedzenie"] , color: '#dce7c5'},
                     {key: 'Napoje', value: sum["Napoje"] , color: '#e3a51a'},
                     {key: 'Rozrywki', value: sum["Rozrywki"] , color: '#4286f4'},
-                    {key: 'Alkohol', value: sum["Alkohol"] , color: '#36443b'},
-                    {key: 'Sport', value: sum["Sport"] , color: '#42f480'},
-                    {key: 'Kultura', value: sum["Kultura"] , color: '#3f3644'},
-                    {key: 'Zdrowie', value: sum["Zdrowie"] , color: '#820a30'},
+                    {key: 'Alkohol', value: sum["Alkohol"] , color: 'blue'},
+                    {key: 'Sport', value: sum["Sport"] , color: 'red'},
+                    {key: 'Kultura', value: sum["Kultura"] , color: 'green'},
+                    {key: 'Zdrowie', value: sum["Zdrowie"] , color: 'grey'},
                   ]}
                   styles={{
                     '.chart_text': {
                       fontSize: '1em',
-                      fill: '#fff',
-                      values:'0',
+                      fill: '#fff'
                     }
                   }}
                 />
