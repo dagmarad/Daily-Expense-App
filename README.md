@@ -1,3 +1,4 @@
 # Daily-Expense-App
 http://dagmaragruszczynska.pl/dailyexpense/
-HTLML, Bootstrap, React
+<strong>HTLML, Bootstrap, React</strong>
+<p>Application created in React, in which you can chceck your daily expenses.</p>
