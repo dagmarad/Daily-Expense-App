@@ -13,15 +13,17 @@ import {Legend} from 'react-easy-chart';
           sumaAll+=parseInt(el.price);
         });
 
-        categories.forEach
-        let sum = {}
-
-        this.props.products.forEach((el,index)=>{
-           if(typeof sum[el.category]==="undefined"){
-             sum[el.category]=0;
-         }
-            sum[el.category]+=parseInt(el.price)
+        categories.forEach((cat,index)=>{
+          categories[index].value=0;
         });
+        this.props.products.forEach((el)=>{
+          categories.forEach((cat,index)=>{
+            if (categories[index].key===el.category){
+              categories[index].value+=parseInt(el.price);
+            }
+          });
+        });
+
 
         return <div>
 
@@ -35,41 +37,13 @@ import {Legend} from 'react-easy-chart';
                     </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>Jedzenie</td>
-                    <td>{sum["Jedzenie"]} </td>
-                  </tr>
 
-                  <tr>
-                    <td>Napoje</td>
-                    <td>{sum["Napoje"]}</td>
-                  </tr>
-                  <tr>
-                    <td>Kultura</td>
-                    <td>{sum["Kultura"]}</td>
-                  </tr>
-
-
-                <tr>
-                    <td>Rozrywki</td>
-                    <td>{sum["Rozrywki"]}</td>
-                  </tr>
-                  <tr>
-                      <td>Podróże</td>
-                      <td>{sum["Podróże"]}</td>
-                    </tr>
-                    <tr>
-                        <td>Alkohol</td>
-                        <td>{sum["Alkohol"]}</td>
-                      </tr>
-                    <tr>
-                      <td>Sport</td>
-                      <td>{sum["Sport"]}</td>
-                        </tr>
-                      <tr>
-                        <td>Zdrowie</td>
-                        <td>{sum["Zdrowie"]}</td>
-                      </tr>
+                      {categories.map((cat,index)=>{
+                        return <tr key={index}>
+                          <td>{categories[index].key}</td>
+                          <td>{categories[index].value} </td>
+                        </tr>;
+                      })}
                   <tr>
                     <td>Łącznie</td>
                     <td>{sumaAll}</td>
@@ -80,28 +54,18 @@ import {Legend} from 'react-easy-chart';
               <div>
 
 
-
                 <PieChart
-                  labels
-                  data={[
+                                  labels
+                                  data = {categories}
+                                  styles={{
+                                    '.chart_text': {
+                                      fontSize: '1em',
+                                      fill: '#fff',
+                                      values:'0',
+                                    }
+                                  }}
+                                />
 
-                    {key: 'Podróże', value:sum["Podróże"],  color: '#aaac84'},
-                    {key: 'Jedzenie', value: sum["Jedzenie"], color: '#dce7c5'},
-                    {key: 'Napoje', value: sum["Napoje"] , color: '#e3a51a'},
-                    {key: 'Rozrywki', value: sum["Rozrywki"] , color: '#4286f4'},
-                    {key: 'Alkohol', value: sum["Alkohol"] , color: '#36443b'},
-                    {key: 'Sport', value: sum["Sport"] , color: '#42f480'},
-                    {key: 'Kultura', value: sum["Kultura"] , color: '#3f3644'},
-                    {key: 'Zdrowie', value: sum["Zdrowie"] , color: '#820a30'},
-                  ]}
-                  styles={{
-                    '.chart_text': {
-                      fontSize: '1em',
-                      fill: '#fff',
-                      values:'0',
-                    }
-                  }}
-                />
 
 
               </div>

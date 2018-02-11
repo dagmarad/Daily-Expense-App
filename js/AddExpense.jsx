@@ -39,7 +39,7 @@ handleButtonClick =()=>{
         var categoriesList = [];
         categories.forEach((el,index)=>{
           categoriesList.push(
-            <option value={el.category} key={index}>{el.category}</option>);
+            <option value={categories[index].key} key={index}>{categories[index].key}</option>);
           });
 
         return <div>
@@ -60,7 +60,7 @@ handleButtonClick =()=>{
           <tbody>
             <tr>
               <td  className="col-md-3"><input className="form-control" type="date" value={this.props.expenseDate} onChange={this.handleDateChange}/></td>
-              <td  className="col-md-3"><select className="form-control" value={this.props.expenseCategory} onChange={this.handleCategoryChange}  >
+              <td  className="col-md-3"><select className="form-control" value={this.props.expenseCategory?this.props.expenseCategory:categories[0].key} onChange={this.handleCategoryChange}  >
                 {categoriesList}
               </select></td>
 
