@@ -84,8 +84,7 @@ class App extends React.Component{
 
 
       render() {
-
-        return <div className="container-fluid">
+        return <div className="mdc-layout-grid">
                   <AddExpense  expenseName={this.state.expenseName} onExpenseNameChange={this.ExpenseNameChange}
                      expenseAmount={this.state.expenseAmount} onExpenseNumberChange={this.ExpenseNumberChange}
                      expenseCategory={this.state.expenseCategory} onExpenseCategoryChange={this.ExpenseCategoryChange}

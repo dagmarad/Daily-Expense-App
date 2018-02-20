@@ -51,7 +51,7 @@ import {Legend} from 'react-easy-chart';
 
                 </tbody>
               </table>
-              <div>
+              <div className="table">
 
 
                 <PieChart

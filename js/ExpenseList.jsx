@@ -17,7 +17,7 @@ import ReactDOM from 'react-dom';
             <td className="col-md-3">{el.category}</td>
             <td className="col-md-3">{el.name}</td>
             <td className="col-md-2">{el.price}</td>
-            <td className="col-md-1"><button onClick={this.handleButtonDelete} value={index} className="btn btn-danger">Usuń</button></td>
+            <td className="col-md-1"><button onClick={this.handleButtonDelete} value={index} className="btn btn-warning">Usuń</button></td>
           </tr> )
         });
 
