@@ -27887,72 +27887,77 @@ var Summary = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'containerSummary' },
         _react2.default.createElement(
-          'h2',
-          null,
-          'Podsumowanie'
-        ),
-        _react2.default.createElement(
-          'table',
-          { className: 'table table table-bordered' },
+          'div',
+          { className: 'col' },
           _react2.default.createElement(
-            'thead',
+            'h2',
             null,
-            _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement(
-                'th',
-                { className: 'col-md-3' },
-                'Kategoria'
-              ),
-              _react2.default.createElement(
-                'th',
-                { className: 'col-md-4' },
-                'Suma'
-              )
-            )
+            'Podsumowanie'
           ),
           _react2.default.createElement(
-            'tbody',
-            null,
-            _categoryList2.default.map(function (cat, index) {
-              return _react2.default.createElement(
+            'table',
+            { className: 'table' },
+            _react2.default.createElement(
+              'thead',
+              null,
+              _react2.default.createElement(
                 'tr',
-                { key: index },
+                null,
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Kategoria'
+                ),
+                _react2.default.createElement(
+                  'th',
+                  null,
+                  'Suma'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'tbody',
+              null,
+              _categoryList2.default.map(function (cat, index) {
+
+                return _react2.default.createElement(
+                  'tr',
+                  { key: index },
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _categoryList2.default[index].key
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _categoryList2.default[index].value,
+                    ' '
+                  )
+                );
+              }),
+              _react2.default.createElement(
+                'tr',
+                null,
                 _react2.default.createElement(
                   'td',
                   null,
-                  _categoryList2.default[index].key
+                  '\u0141\u0105cznie'
                 ),
                 _react2.default.createElement(
                   'td',
                   null,
-                  _categoryList2.default[index].value,
-                  ' '
+                  sumaAll
                 )
-              );
-            }),
-            _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement(
-                'td',
-                null,
-                '\u0141\u0105cznie'
-              ),
-              _react2.default.createElement(
-                'td',
-                null,
-                sumaAll
               )
             )
           )
         ),
         _react2.default.createElement(
           'div',
-          { className: 'table' },
+          { className: 'col' },
           _react2.default.createElement(_reactEasyChart.PieChart, {
             labels: true,
             data: _categoryList2.default,

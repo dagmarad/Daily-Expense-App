@@ -1,25 +1,39 @@
-body{
-  background-image: url('desktopAbacus.jpg');
-  repeat:no-repeat;
-  background-size: cover;
-  background-attachment: fixed
-}
-h2{
-  background-color: rgba(202, 210, 221, 0.8);
-  
-}
-#app{
-  margin:0 auto;
-  max-width: 60%;
-}
-.table {
-  background-color: rgba(202, 210, 221, 0.8);
-}
- #app > div > div:nth-child(3) > table > tbody > tr > td{
-   border: 1px rgba(202, 210, 221, 0.8);
- }
-#app > div > div:nth-child(4) > table > tbody > tr > td{
-  border: 1px rgba(202, 210, 221, 0.8);
-}
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBVUU7RUFDRSwwQkFUUSxFQVVUOztBQUZEO0VBQ0UsMEJBUlcsRUFTWjs7QUFGRDtFQUNFLDBCQVBVLEVBUVg7O0FBRkQ7RUFDRSwwQkFOUyxFQU9WOztBQUZEO0VBQ0UsMEJBTGEsRUFNZCIsImZpbGUiOiJzdHlsZS5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBDb2xvcnNcbiRyYWluYm93OiAoXG5yZWQ6ICNGRjAwMDAsXG55ZWxsb3c6ICNGRkZGMDAsXG5ncmVlbjogIzAwRkYwMCxcbmJsdWU6ICMwMDAwRkYsXG50dXJxdW9pc2U6IzQwZTBkMFxuKTtcblxuQGVhY2ggJG5hbWUsICRjb2xvciBpbiAkcmFpbmJvdyB7XG4gIC4jeyRuYW1lfXtcbiAgICBib3JkZXI6IDJweCBzb2xpZCAkY29sb3I7XG4gIH1cbn1cbiJdfQ== */
+body {
+  background: #edeff1;
+}
+h1 {
+  color: #fff; font-size: 24px; margin: 16px; padding: 0;
+}
+h2 {
+  margin: 60px 0 30px; font-size: 36px;
+}
+.navbar {
+  border-radius: 0;
+}
+.containerSummary{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap:wrap;
+}
+.col{
+  margin-top:30px;
+}
+@media (max-width:480px){
+  body{
+  font-size:12px;
+ }
+ h2{
+   font-size:24px;
+ }
+ .table{
+   max-width:80%;
+ }
+ .table>thead>tr>th{
+   padding:5px;
+ }
+ .pie-chart{
+   max-width: 320px;
+ }
+}

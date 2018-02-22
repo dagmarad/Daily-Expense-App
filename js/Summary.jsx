@@ -25,36 +25,38 @@ import {Legend} from 'react-easy-chart';
         });
 
 
-        return <div>
+        return <div className="containerSummary">
+                  
+                    <div className="col">
+          
+                        <h2>Podsumowanie</h2>
+                        <table className="table">
+                          <thead>
+                            <tr>
+                              <th>Kategoria</th>
+                              <th>Suma</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {categories.map((cat,index)=>{
+                                
+                                return <tr key={index}>
+                                          <td>{categories[index].key}</td>
+                                          <td>{categories[index].value} </td>
+                                       </tr>;
+                                })}
+                                      <tr>
+                                      <td>Łącznie</td>
+                                      <td>{sumaAll}</td>
+                                      </tr>
 
-                <h2>Podsumowanie</h2>
-                <table className="table table table-bordered">
-                  <thead>
-                    <tr>
-
-                      <th className="col-md-3">Kategoria</th>
-                      <th className="col-md-4">Suma</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                      {categories.map((cat,index)=>{
-                        return <tr key={index}>
-                          <td>{categories[index].key}</td>
-                          <td>{categories[index].value} </td>
-                        </tr>;
-                      })}
-                  <tr>
-                    <td>Łącznie</td>
-                    <td>{sumaAll}</td>
-                  </tr>
-
-                </tbody>
-              </table>
-              <div className="table">
-
-
-                <PieChart
+                      </tbody>
+                      </table>
+                
+                    </div>
+                    <div className="col">  
+        
+                      <PieChart
                                   labels
                                   data = {categories}
                                   styles={{
@@ -65,12 +67,11 @@ import {Legend} from 'react-easy-chart';
                                     }
                                   }}
                                 />
-
-
-
+                  
+                              </div>              
+              
               </div>
-
-            </div>
+            
       }
 }
 export default Summary;
